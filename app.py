@@ -42,7 +42,7 @@ def imageInput(device, src):
             with col2:
                 st.image(img_, caption='Model Prediction(s)', use_column_width='always')
             x, trash  = str(pred).split("Speed")
-            st.write("Predictions: " + [18]x)
+            st.write("Predictions: " + x[18:])
 
     elif src == 'From test set.':
         # Image selector slider
