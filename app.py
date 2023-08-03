@@ -38,12 +38,13 @@ def imageInput(device, src):
 
             # --Display predicton
 
-            #img_ = Image.open(outputpath)
-            with col2:
-                st.image(img_, caption='Model Prediction(s)', use_column_width='always')
             x, trash  = str(pred).split("Speed")
             x = "Results: " + (x[18:]).replace("persons", "customers")
             st.write(x)
+            
+            img_ = Image.open(outputpath)
+            with col2:
+                st.image(img_, caption='Model Prediction(s)', use_column_width='always')
 
     elif src == 'From test set.':
         # Image selector slider
