@@ -42,12 +42,8 @@ def imageInput(device, src):
             with col2:
                 st.image(img_, caption='Model Prediction(s)', use_column_width='always')
             x, trash  = str(pred).split("Speed")
-            x = x[18:]
-            if "persons" in x:
-                x.replace("persons", "customers")
-            else:
-                x = "k"
-            st.write("Predictions: " + x)
+            x = "Predictions: " + (x[18:]).replace("persons", "customers")
+            st.write(x)
 
     elif src == 'From test set.':
         # Image selector slider
