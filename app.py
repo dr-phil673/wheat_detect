@@ -32,15 +32,17 @@ def imageInput(device, src):
             model.cuda() if device == 'cuda' else model.cpu()
             pred = model(imgpath)
             pred.render()  # render bbox in image
+            
+            x, trash  = str(pred).split("Speed")
+            x = "Results: " + (x[18:]).replace("persons", "customers")
+            st.write(x)
+            
             for im in pred.ims:
                 im_base64 = Image.fromarray(im)
                 im_base64.save(outputpath)
 
             # --Display predicton
 
-            x, trash  = str(pred).split("Speed")
-            x = "Results: " + (x[18:]).replace("persons", "customers")
-            st.write(x)
             
             img_ = Image.open(outputpath)
             with col2:
