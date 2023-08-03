@@ -22,7 +22,7 @@ def imageInput(device, src):
                 st.image(img, caption='Uploaded Image', use_column_width='always')
             ts = datetime.timestamp(datetime.now())
             imgpath = os.path.join('data/uploads', str(ts) + image_file.name)
-            #outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
+            outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
             with open(imgpath, mode="wb") as f:
                 f.write(image_file.getbuffer())
 
@@ -30,7 +30,7 @@ def imageInput(device, src):
            
             model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
             model.cuda() if device == 'cuda' else model.cpu()
-            pred = model(imgpath)
+            #pred = model(imgpath)
             pred.render()  # render bbox in image
             
             x, trash  = str(pred).split("Speed")
