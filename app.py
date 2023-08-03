@@ -28,7 +28,7 @@ def imageInput(device, src):
 
             # call Model prediction--
            
-            model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
+            #model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
             model.cuda() if device == 'cuda' else model.cpu()
             pred = model(imgpath)
             pred.render()  # render bbox in image
@@ -36,7 +36,6 @@ def imageInput(device, src):
             x, trash  = str(pred).split("Speed")
             x = "Results: " + (x[18:]).replace("persons", "customers")
             st.write(x)
-            st.write(str(ts))
             
             for im in pred.ims:
                 im_base64 = Image.fromarray(im)
