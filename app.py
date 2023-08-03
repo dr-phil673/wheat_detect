@@ -38,11 +38,11 @@ def imageInput(device, src):
 
             # --Display predicton
 
-            img_ = Image.open(outputpath)
+            #img_ = Image.open(outputpath)
             with col2:
                 st.image(img_, caption='Model Prediction(s)', use_column_width='always')
             x, trash  = str(pred).split("Speed")
-            x = "Predictions: " + (x[18:]).replace("persons", "customers")
+            x = "Results: " + (x[18:]).replace("persons", "customers")
             st.write(x)
 
     elif src == 'From test set.':
