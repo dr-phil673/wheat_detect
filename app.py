@@ -20,8 +20,8 @@ def imageInput(device, src):
             img = Image.open(image_file)
             with col1:
                 st.image(img, caption='Uploaded Image', use_column_width='always')
-            #ts = datetime.timestamp(datetime.now())
-            imgpath = os.path.join('data/uploads', str(ts) + image_file.name)
+            ts = datetime.timestamp(datetime.now())
+            #imgpath = os.path.join('data/uploads', str(ts) + image_file.name)
             outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
             with open(imgpath, mode="wb") as f:
                 f.write(image_file.getbuffer())
