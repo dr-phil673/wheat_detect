@@ -50,6 +50,7 @@ def imageInput(device, src):
                 st.image(img_, caption='Model Prediction(s)', use_column_width='always')
 
     elif src == 'Home':
+        st.write("HOME")
 
 
 
