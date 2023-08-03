@@ -90,9 +90,9 @@ def main():
         deviceoption = st.sidebar.radio("Select compute Device.", ['cpu', 'cuda'], index=0)
     # -- End of Sidebar
 
-    st.header('🌾Wheat Head Detection Model')
+    st.header('Customer Detector Project')
     st.subheader('👈🏽Select the options')
-    st.sidebar.markdown("https://bit.ly/3uvYQ3R")
+    st.sidebar.markdown("https://docs.google.com/presentation/d/1YPYeInGlqP3MnvD2ulFU-cNur-kfsRBivHfElN2naHM/edit?usp=sharing")
 
     imageInput(deviceoption, datasrc)
 
