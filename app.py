@@ -50,30 +50,6 @@ def imageInput(device, src):
                 st.image(img_, caption='Model Prediction(s)', use_column_width='always')
 
     elif src == 'Home':
-        # Image selector slider
-        test_images = os.listdir('data/images/')
-        test_image = st.selectbox('Please select a test image:', test_images)
-        image_file = 'data/images/' + test_image
-        submit = st.button("Predict!")
-        col1, col2 = st.columns(2)
-        with col1:
-            img = Image.open(image_file)
-            st.image(img, caption='Selected Image', use_column_width='always')
-        with col2:
-            if image_file is not None and submit:
-                # call Model prediction--
-                model = torch.hub.load('ultralytics/yolov5', 'custom', path='models/last.pt', force_reload=True)
-                pred = model(image_file)
-                pred.render()  # render bbox in image
-                for im in pred.ims:
-                    im_base64 = Image.fromarray(im)
-                    im_base64.save(os.path.join('data/outputs', os.path.basename(image_file)))
-                    # --Display predicton
-                    img_ = Image.open(os.path.join('data/outputs', os.path.basename(image_file)))
-                    st.image(img_, caption='Model Prediction(s)')
-                st.write(pred)
-            else:
-                st.write("no predictions")
 
 
 
