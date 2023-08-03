@@ -45,6 +45,8 @@ def imageInput(device, src):
             x = x[18:]
             if "persons" in x:
                 x.replace("persons", "customers")
+            else:
+                x = "k"
             st.write("Predictions: " + x)
 
     elif src == 'From test set.':
