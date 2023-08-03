@@ -28,8 +28,8 @@ def imageInput(device, src):
 
             # call Model prediction--
            
-            #model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
-            model.cuda() if device == 'cuda' else model.cpu()
+            model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
+            #model.cuda() if device == 'cuda' else model.cpu()
             pred = model(imgpath)
             pred.render()  # render bbox in image
             
