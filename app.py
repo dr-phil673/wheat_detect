@@ -49,7 +49,7 @@ def imageInput(device, src):
             with col2:
                 st.image(img_, caption='Model Prediction(s)', use_column_width='always')
 
-    elif src == 'From test set.':
+    elif src == 'Home':
         # Image selector slider
         test_images = os.listdir('data/images/')
         test_image = st.selectbox('Please select a test image:', test_images)
@@ -81,7 +81,7 @@ def imageInput(device, src):
 def main():
     # -- Sidebar
     st.sidebar.title('⚙️Options')
-    datasrc = st.sidebar.radio("Select input source.", ['From test set.', 'Upload your own data.'])
+    datasrc = st.sidebar.radio("Select input source.", ['Home', 'Upload your own data.'])
 
     # option = st.sidebar.radio("Select input type.", ['Image', 'Video'])
     if torch.cuda.is_available():
