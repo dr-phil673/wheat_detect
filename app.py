@@ -17,7 +17,7 @@ def imageInput(device, src):
         image_file = st.file_uploader("Upload An Image", type=['png', 'jpeg', 'jpg'])
         col1, col2 = st.columns(2)
         if image_file is not None:
-            img = Image.open(image_file)
+            #img = Image.open(image_file)
             with col1:
                 st.image(img, caption='Uploaded Image', use_column_width='always')
             #ts = datetime.timestamp(datetime.now())
