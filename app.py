@@ -23,8 +23,8 @@ def imageInput(device, src):
             ts = datetime.timestamp(datetime.now())
             imgpath = os.path.join('data/uploads', str(ts) + image_file.name)
             outputpath = os.path.join('data/outputs', os.path.basename(imgpath))
-            #with open(imgpath, mode="wb") as f:
-             #   f.write(image_file.getbuffer())
+            with open(imgpath, mode="wb") as f:
+                f.write(image_file.getbuffer())
 
             # call Model prediction--
            
@@ -36,6 +36,7 @@ def imageInput(device, src):
             x, trash  = str(pred).split("Speed")
             x = "Results: " + (x[18:]).replace("persons", "customers")
             st.write(x)
+            st.write(str(ts))
             
             for im in pred.ims:
                 im_base64 = Image.fromarray(im)
