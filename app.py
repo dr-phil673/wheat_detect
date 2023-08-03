@@ -28,7 +28,7 @@ def imageInput(device, src):
 
             # call Model prediction--
            
-            model = torch.hub.load('ultralytics/yolov5', 'custom', path='models/last.pt', force_reload=True)
+            model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
             model.cuda() if device == 'cuda' else model.cpu()
             pred = model(imgpath)
             pred.render()  # render bbox in image
@@ -41,6 +41,7 @@ def imageInput(device, src):
             img_ = Image.open(outputpath)
             with col2:
                 st.image(img_, caption='Model Prediction(s)', use_column_width='always')
+            st.write(pred)
 
     elif src == 'From test set.':
         # Image selector slider
@@ -64,7 +65,9 @@ def imageInput(device, src):
                     # --Display predicton
                     img_ = Image.open(os.path.join('data/outputs', os.path.basename(image_file)))
                     st.image(img_, caption='Model Prediction(s)')
-
+                st.write(pred)
+            else:
+                st.write("no predictions")
 
 
 
